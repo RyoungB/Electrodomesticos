@@ -1,5 +1,7 @@
 package es.genesis.electrodomesticos;
+import static es.genesis.utilidades.Colores.*;
 
+import es.genesis.utilidades.Colores;
 public class MainApplication {
 
 	public static void main(String[] args) {
@@ -18,9 +20,9 @@ public class MainApplication {
 	 electrodomestico[9] = new Lavadora (33,36);
 	 
 	 
-	double sumaElectrodomestico = 0;
-	double sumaLavadora = 0;
-	double sumaTelevisiones = 0;
+	double sumaElectrodomestico = 0.0;
+	double sumaLavadora = 0.0;
+	double sumaTelevisiones = 0.0;
 	
 	
 	 //Recorrer el array y ejcutar preciofinal()
@@ -35,17 +37,44 @@ public class MainApplication {
 		}else {
 			sumaElectrodomestico += precio;
 		}
+		
+		// usando libreria con las utilidades
+		/*
+		 * Como lo coloque en static no debo hacer la llamada con el nombre de la clase y la variable
+		 * sino colocar la variable
+		 */
+		//System.out.println(WHITE_BACKGROUND_BRIGHT+ANSI_BLUE+ANSI_NEGRITA+ "   FACTURA DE ELECTRODOMÉTICOS  ");
+		
+		//configuracion con los colores y background dependiendo del tipo de electrodomestico
+		String nombreTipo = "Electrodomestico";
+		String colorTexto = ANSI_GREEN ;
+		String background = WHITE_BACKGROUND_BRIGHT;
+		
+		
+		if (electrodom instanceof Lavadora) {
+			nombreTipo = "Lavadora    ";
+			colorTexto =  ANSI_BLUE;
+			background = WHITE_BACKGROUND_BRIGHT;
+			
+		}else if(electrodom instanceof Television) {
+			nombreTipo = "Television    ";
+			colorTexto =  ANSI_PURPLE;
+			background = WHITE_BACKGROUND_BRIGHT;
+		}
+		
+		
+		System.out.println(background + colorTexto + ANSI_NEGRITA+ "  ->" + nombreTipo
+				+"  | Peso: "+ electrodom.getPeso() + " kg"
+				+"  | Precio Final: " + electrodom.getPrecioBase() + " Euros " + ANSI_RESET);
 	}
 		
 	
 	
-	
-	
 	 //Mostrar resultados
-	System.out.println("Total Electrodomestico: " + sumaElectrodomestico);
-	System.out.println("Total Lavadoras: "+ sumaLavadora);
-	System.out.println("Total Televisiones: "+ sumaTelevisiones);
-	System.out.println("Total de todos los productos: "+(sumaElectrodomestico+sumaLavadora+sumaTelevisiones));
+	System.out.println("   Total Electrodomestico:   " + sumaElectrodomestico);
+	System.out.println("   Total Lavadoras:   "+ sumaLavadora);
+	System.out.println("   Total Televisiones:   "+ sumaTelevisiones);
+	System.out.println("   Total de todos los productos:   "+(sumaElectrodomestico+sumaLavadora+sumaTelevisiones));
 	
 	
 	
