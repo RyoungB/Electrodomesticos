@@ -84,6 +84,25 @@ public class Electrodomestico {
 		return PESO_DEF;
 	}
 	
+	
+	
+	
+	/*
+	 * Getter de los atributos que no son constantes por que sino no nos muestra los precio que le pasamos 
+	 * en el array
+	 */
+	public double getPrecioBase() {
+		return precioBase;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+	
+	
+	
+	
+	
 	  //metodos
 	/*
 	 * comprobarConsumoEnergetico(char letra): comprueba que la letra es
@@ -113,6 +132,8 @@ public class Electrodomestico {
 	
 	
 	
+
+
 	// lo cambie de private de public por que la clase Lavadora no lo ve
 	public Color  comprobarColor(String color) {
 		if(color == null) {
