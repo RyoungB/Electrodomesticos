@@ -49,23 +49,27 @@ public class MainApplication {
 		String nombreTipo = "Electrodomestico";
 		String colorTexto = ANSI_GREEN ;
 		String background = WHITE_BACKGROUND_BRIGHT;
-		
+		//String formato = "%s%-27s%7.2f%n";
 		
 		if (electrodom instanceof Lavadora) {
 			nombreTipo = "Lavadora    ";
 			colorTexto =  ANSI_BLUE;
 			background = WHITE_BACKGROUND_BRIGHT;
-			
+			//formato = "%s";
 		}else if(electrodom instanceof Television) {
 			nombreTipo = "Television    ";
 			colorTexto =  ANSI_PURPLE;
 			background = WHITE_BACKGROUND_BRIGHT;
+			//formato = "%s";
 		}
 		
 		
-		System.out.println(background + colorTexto + ANSI_NEGRITA+ "  ->" + nombreTipo
-				+"  | Peso: "+ electrodom.getPeso() + " kg"
-				+"  | Precio Final: " + electrodom.getPrecioBase() + " Euros " + ANSI_RESET);
+	/*System.out.printf(formato+background + colorTexto + ANSI_NEGRITA+  nombreTipo
+				+"  | Peso:  "+ electrodom.getPeso() + " kg"
+				+"  | Precio Final: " + electrodom.getPrecioBase() + " Euros " + ANSI_RESET);*/
+		
+		System.out.printf("%s%s%s%-16s   |   Peso: %6.1f kg   |   Precio Final: %6.2f Euros %s\n",
+		                  background,colorTexto,ANSI_NEGRITA,nombreTipo,electrodom.getPeso(),precio, ANSI_RESET);
 	}
 		
 	
